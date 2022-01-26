@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a361935258.js" crossorigin="anonymous"></script>
+    <title> Temperature Converter </title>
+
+    <!-- add css -->
+    <style>
+
+      
+       @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+      @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
+
+      *{
+          padding: 0px;
+          margin: 0px;
+          box-sizing: border-box;
+          font-family: 'Roboto', sans-serif;
+      }
+
+
+      h1,h2,h3,h4,h5,h6 {
+          font-family: 'Mochiy Pop P One', sans-serif;
+      }
+
+      h1{
+          text-align: center;
+          padding: 30px;
+          color: rgb(223, 50, 19);
+      }
+      body{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 80vh;
+      }
+      #container{
+          border : 1px groove black;
+          width: 600px;
+          margin: 0 auto;
+          padding: 30px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          box-shadow: 3px 0px 53px 4px rgba(33,205,230,0.63);
+          -webkit-box-shadow: 3px 0px 53px 4px rgba(33,205,230,0.63);
+          -moz-box-shadow: 3px 0px 53px 4px rgba(33,205,230,0.63);
+      }
+      #equal{
+          font-size: 30px;
+          margin-top: 15px;
+      }
+      .input-div{
+          font-weight:500;
+          
+      }
+      .inp{
+          padding: 10px;
+          text-align: center;
+          margin-top: 10px;
+          font-weight: 600;
+          font-size: 16px;
+      }
+      label{
+
+          margin-left: 50px;
+      }
+
+
+    </style>
+</head>
+<body>
+
+  <h1>Temperature Converter</h1>
+
+  <div id="container">
+
+     <div class="input-div">
+         <label for="cel">Celsius :</label><br>
+        <input type="number" name="number1" id="cel" value= "0" class="inp">
+     </div>
+
+        <div id="equal">=</div>
+     <div class="input-div">
+        <label for="fah">Fahrenheit :</label><br>
+        <input type="number" name="number2" id="fah" value= "32" class="inp">
+    </div>
+
+     
+
+  </div>
+
+
+
+    <!-- add script -->
+    <script >
+
+      
+        let cel = document.getElementById("cel");
+        let fah = document.getElementById("fah");
+
+
+        cel.addEventListener("input",function(){
+          
+            let celValue = this.value;
+            let fahValue = celValue * (9/5) + 32 ; 
+              if(!Number.isInteger(fahValue)){
+                
+                fahValue = fahValue.toFixed(4);
+              }
+
+              fah.value = fahValue;
+        });
+
+        
+        fah.addEventListener("input" , function(){
+            
+              let fahValue = this.value;
+              let celValue = (fahValue - 32) * 5/9;
+
+              if(!Number.isInteger(celValue)){
+                celValue = celValue.toFixed(4);
+              }
+              cel.value = celValue;
+        });
+
+    </script>
+</body>
+</html>
